@@ -1,0 +1,14 @@
+# Spring properties
+spring:
+  jackson:
+    default-property-inclusion: NON_NULL
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/jwt-auth-test
+
+# App Properties
+app:
+  security:
+    jwtSecret: SldUU3VwZXJTZWNyZXRLZXkxMjM0NXF3ZXJ0eXVpb3Bhc2RmZ2hqa2w=
+    jwtExpirationInMs: 604800000 # One week
+    maxCacheTime: 3600
