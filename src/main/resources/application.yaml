@@ -11,4 +11,5 @@ app:
   security:
     jwtSecret: SldUU3VwZXJTZWNyZXRLZXkxMjM0NXF3ZXJ0eXVpb3Bhc2RmZ2hqa2w=
     jwtExpirationInMs: 604800000 # One week
-    maxCacheTime: 3600
+    cors:
+      maxCacheTime: 3600 # One hour

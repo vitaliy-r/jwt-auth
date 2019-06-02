@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
 
-  @Value("${app.security.maxCacheTime}")
+  @Value("${app.security.cors.maxCacheTime}")
   private long maxCacheTime;
 
   @Override

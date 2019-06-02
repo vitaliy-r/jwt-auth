@@ -1,5 +1,6 @@
 package com.epam.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import java.util.Collection;
@@ -51,6 +52,7 @@ public class User implements UserDetails {
   @JsonProperty(access = Access.READ_ONLY)
   private Set<Role> roles;
 
+  @JsonIgnore
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
     return roles.stream()
@@ -58,21 +60,25 @@ public class User implements UserDetails {
         .collect(Collectors.toList());
   }
 
+  @JsonIgnore
   @Override
   public boolean isAccountNonExpired() {
     return true;
   }
 
+  @JsonIgnore
   @Override
   public boolean isAccountNonLocked() {
     return true;
   }
 
+  @JsonIgnore
   @Override
   public boolean isCredentialsNonExpired() {
     return true;
   }
 
+  @JsonIgnore
   @Override
   public boolean isEnabled() {
     return true;
