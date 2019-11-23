@@ -9,7 +9,6 @@ import com.epam.repository.UserRepository;
 import com.epam.security.JwtTokenProvider;
 import com.epam.service.UserService;
 import java.util.Collections;
-import java.util.HashSet;
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -55,7 +54,7 @@ public class UserServiceImpl implements UserService {
     Role role = roleRepository.findByName("ROLE_USER").orElseThrow(() ->
         new RuntimeException("Role is not found!"));
 
-    user.setRoles(new HashSet<>(Collections.singletonList(role)));
+    user.setRoles(Collections.singleton(role));
     user.setPassword(passwordEncoder.encode(user.getPassword()));
 
     return userRepository.save(user);

@@ -64,16 +64,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
           .and()
         .authorizeRequests()
           .antMatchers("/", "/favicon.ico", "/**/*.png", "/**/*.gif", "/**/*.svg",
-              "/**/*.jpg", "/**/*.html", "/**/*.css", "/**/*.js")
-            .permitAll()
-          .antMatchers("/api/auth/**")
-            .permitAll()
-          .antMatchers("/api/user/**")
-            .hasAnyRole("USER", "ADMIN")
-          .antMatchers("/api/admin/**")
-            .hasAnyRole("ADMIN")
-          .anyRequest()
-            .authenticated()
+              "/**/*.jpg", "/**/*.html", "/**/*.css", "/**/*.js").permitAll()
+          .antMatchers("/api/auth/**").permitAll()
+          .antMatchers("/api/user/**").hasAnyRole("USER", "ADMIN")
+          .antMatchers("/api/admin/**").hasAnyRole("ADMIN")
+          .anyRequest().authenticated()
           .and()
         .addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
   }

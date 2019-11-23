@@ -1,6 +1,5 @@
 package com.epam.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
@@ -9,7 +8,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Document
 public class Role {
 
@@ -18,5 +16,9 @@ public class Role {
 
   @Indexed(unique = true)
   private String name;
+
+  public Role(String name) {
+    this.name = name;
+  }
 
 }
